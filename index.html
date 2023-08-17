@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Login</title>
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: linear-gradient(#141e30, #243b55);
+    }
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      padding: 40px;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, .5);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+      border-radius: 10px;
+    }
+
+    .login-box h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+    }
+
+    .login-box .user-box {
+      position: relative;
+    }
+
+    .login-box .user-box input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
+
+    .login-box .user-box label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: .5s;
+    }
+
+    .input-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .user-box input:focus + .input-label {
+      top: -10px;
+      font-size: 12px;
+    }
+
+    .user-box input:not(:placeholder-shown) + .input-label {
+      top: -10px;
+      font-size: 12px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .button {
+      background-color: #03e9f4;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .button:hover {
+      background-color: #02c3e0;
+      border-color: #03e9f4;
+    }
+
+    .image-container {
+      position: absolute;
+      top: calc(50% - 250px - 70px); /* 70 pixels acima da posição central */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 350px;
+      height: 250px;
+     
+    }
+
+    .image-container2 {
+      position: absolute;
+      top: calc(40px); /* 90 pixels acima da posição central */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 250px;
+      
+    }
+
+    .centered-image {
+      max-width: 100%;
+      max-height: 100%;
+      filter: brightness(1.5);
+    }
+
+    .colored-text {
+      color: #03e9f4;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="image-container2">
+    <img src="https://github.com/erick15021/limpapp/blob/main/MicrosoftTeams-image.png?raw=true" alt="Imagem" class="centered-image">
+  </div>
+  <div class="image-container">
+    <img src="https://raw.githubusercontent.com/GarosiNa/limpapp/main/LOGOLIMPAPP-removebg-preview.png" alt="Imagem" class="centered-image">
+  </div>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form id="login-form">
+      <div class="user-box">
+        <input type="text" id="username" required="">
+        <label for="username" class="input-label">Usuário</label>
+      </div>
+      <div class="user-box">
+        <input type="password" id="password" required="">
+        <label for="password" class="input-label">Senha</label>
+      </div>
+      <div class="button-container">
+        <div class="button" id="login-button">Entrar</div>
+      </div>
+    </form>
+    <p id="message-container"></p>
+  </div>
+
+  <script>
+    // Seu script JavaScript
+    document.getElementById('login-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const validUsername = 'erick15021@gmail.com';
+      const validPassword = '3488029597';
+
+      if (username === validUsername && password === validPassword) {
+        showMessage('Login realizado com sucesso!', 'green');
+      } else {
+        showMessage('Usuário ou senha incorretos.', 'red');
+      }
+    });
+
+    function showMessage(message, color) {
+      const messageElement = document.getElementById('message-container');
+      messageElement.textContent = message;
+      messageElement.style.color = color;
+    }
+  </script>
+</body>
+
+</html>
